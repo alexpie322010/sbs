@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Official Halloween Page</title>
+  <!-- Google Font: Fredoka One -->
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <style>
     body {
@@ -20,7 +21,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-image: url("OFFICIAL HALLOWEEN PAGE.png");
+      background-image: url("OFFICIAL HALLOWEEN PAGE.png"); /* Replace with your image */
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -110,6 +111,82 @@
     .submit-btn:hover {
       background: #218838;
     }
+
+    /* FAQ Section */
+    .faq {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .faq h2 {
+      font-family: 'Fredoka One', cursive;
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .faq-sub {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #111;
+      border: 2px solid black;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      font-family: 'Fredoka One', cursive;
+      color: white;
+      text-align: left;
+      padding: 15px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question span {
+      font-size: 20px;
+      color: white;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      background: #222;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 20px;
+    }
+
+    .faq-answer p {
+      color: #fff;
+      margin: 15px 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      padding: 15px 20px;
+    }
+
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
+    }
   </style>
 </head>
 <body>
@@ -134,10 +211,51 @@
     </div>
   </div>
 
+  <!-- FAQ Section -->
+  <section class="faq">
+    <h2>FAQ</h2>
+    <p class="faq-sub">Essential information for the Halloween page</p>
+
+    <div class="faq-item">
+      <button class="faq-question">How do I start the Halloween event? <span>+</span></button>
+      <div class="faq-answer">
+        <p>Click the "Claim" button above to begin.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">What rewards can I earn? <span>+</span></button>
+      <div class="faq-answer">
+        <p>You can unlock exclusive items and features during the Halloween event.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Do I need Robux to play? <span>+</span></button>
+      <div class="faq-answer">
+        <p>No. The Halloween event is free, but some optional cosmetics may cost Robux.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Can I customize my avatar? <span>+</span></button>
+      <div class="faq-answer">
+        <p>Yes! Special Halloween costumes and skins are available for customization.</p>
+      </div>
+    </div>
+  </section>
+
   <script>
     function openModal() {
       document.getElementById("popup").classList.add("active");
     }
+
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        faqItem.classList.toggle('active');
+      });
+    });
 
     document.getElementById("claimForm").addEventListener("submit", function(e) {
       e.preventDefault();
