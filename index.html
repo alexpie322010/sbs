@@ -14,21 +14,23 @@
       text-align: center;
     }
 
-    /* Hero Section with Responsive Background */
+    /* Hero Section with full visible image */
     .hero {
       position: relative;
       height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: flex-end;
+      align-items: center;
       background-image: url("OFFICIAL HALLOWEEN PAGE.png"); /* replace with your image */
-      background-size: cover;     /* makes it fill the screen */
-      background-position: center; /* keeps it centered */
+      background-size: contain;   /* full image fits on screen */
+      background-position: center;
       background-repeat: no-repeat;
+      background-color: #ff0000;  /* red fills gaps */
     }
 
     .claim-btn {
-      margin-bottom: 10%; /* keeps it above bottom edge */
+      position: absolute;
+      bottom: 10%;
       padding: 15px 50px;
       font-size: 24px;
       font-family: 'Fredoka One', cursive;
