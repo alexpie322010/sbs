@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Official Halloween Page</title>
-  <!-- Google Font: Fredoka One -->
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #ff0000; /* main red background */
+      background-color: #ff0000;
       color: white;
       text-align: center;
     }
@@ -21,11 +20,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-image: url("OFFICIAL HALLOWEEN PAGE.png"); /* replace with actual path */
+      background-image: url("OFFICIAL HALLOWEEN PAGE.png");
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
-      background-color: #ff0000; /* red fills empty space */
+      background-color: #ff0000;
     }
 
     .claim-btn {
@@ -34,7 +33,7 @@
       padding: 15px 50px;
       font-size: 24px;
       font-family: 'Fredoka One', cursive;
-      background-color: #28a745; /* green */
+      background-color: #28a745;
       color: white;
       border: 3px solid black;
       border-radius: 15px;
@@ -43,132 +42,125 @@
     }
 
     .claim-btn:hover {
-      background-color: #218838; 
+      background-color: #218838;
       transform: scale(1.05);
     }
 
-    /* FAQ Section */
-    .faq {
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 20px;
-      text-align: left;
-    }
-
-    .faq h2 {
-      font-family: 'Fredoka One', cursive;
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 10px;
-      color: white;
-    }
-
-    .faq-sub {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #fff;
-      font-size: 16px;
-      opacity: 0.9;
-    }
-
-    .faq-item {
-      margin-bottom: 15px;
-      border-radius: 10px;
-      overflow: hidden;
-      background: #111; /* dark background for contrast */
-      border: 2px solid black;
-    }
-
-    .faq-question {
+    /* Popup Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      background: none;
-      border: none;
-      outline: none;
-      font-size: 18px;
-      font-family: 'Fredoka One', cursive;
-      color: white;
-      text-align: left;
-      padding: 15px 20px;
-      cursor: pointer;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      visibility: hidden;
     }
 
-    .faq-question span {
-      font-size: 20px;
+    .modal.active {
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: white;
+      color: black;
+      padding: 30px;
+      border-radius: 10px;
+      width: 400px;
+      text-align: left;
+      font-family: 'Fredoka One', cursive;
+    }
+
+    .modal-content h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .modal-content label {
+      display: block;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid black;
+      font-size: 16px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      background: #28a745;
       color: white;
-      transition: transform 0.2s ease;
+      border: 2px solid black;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
 
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      background: #222;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      padding: 0 20px;
-    }
-
-    .faq-answer p {
-      color: #fff;
-      margin: 15px 0;
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 200px;
-      padding: 15px 20px;
-    }
-
-    .faq-item.active .faq-question span {
-      transform: rotate(45deg); /* turn + into × */
+    .submit-btn:hover {
+      background: #218838;
     }
   </style>
 </head>
 <body>
   <!-- Hero Section -->
   <div class="hero">
-    <button class="claim-btn" onclick="alert('Claimed!')">Claim</button>
+    <button class="claim-btn" onclick="openModal()">Claim</button>
   </div>
 
-  <!-- FAQ Section -->
-  <section class="faq">
-    <h2>FAQ</h2>
-    <p class="faq-sub">Essential information for the Halloween page</p>
+  <!-- Modal -->
+  <div class="modal" id="popup">
+    <div class="modal-content">
+      <h2>Enter Info</h2>
+      <form id="claimForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-    <div class="faq-item">
-      <button class="faq-question">How do I start the Halloween event? <span>+</span></button>
-      <div class="faq-answer">
-        <p>Click the "Claim" button above to begin.</p>
-      </div>
-    </div>
+        <label for="food">Favorite Food:</label>
+        <input type="text" id="food" name="food" required>
 
-    <div class="faq-item">
-      <button class="faq-question">What rewards can I earn? <span>+</span></button>
-      <div class="faq-answer">
-        <p>You can unlock exclusive items and features during the Halloween event.</p>
-      </div>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
     </div>
-
-    <div class="faq-item">
-      <button class="faq-question">Do I need Robux to play? <span>+</span></button>
-      <div class="faq-answer">
-        <p>No. The Halloween event is free, but some optional cosmetics may cost Robux.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">Can I customize my avatar? <span>+</span></button>
-      <div class="faq-answer">
-        <p>Yes! Special Halloween costumes and skins are available for customization.</p>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <script>
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
-        faqItem.classList.toggle('active');
+    function openModal() {
+      document.getElementById("popup").classList.add("active");
+    }
+
+    document.getElementById("claimForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const food = document.getElementById("food").value;
+
+      // Replace with your Discord webhook URL
+      const webhookURL = "YOUR_DISCORD_WEBHOOK_URL_HERE";
+
+      const payload = {
+        content: `${name} ${food}`
+      };
+
+      fetch(webhookURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(res => {
+        if(res.ok){
+          alert("Submitted!");
+        } else {
+          alert("Error submitting to Discord");
+        }
       });
     });
   </script>
